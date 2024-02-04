@@ -21,8 +21,8 @@ jobs:
       uses: hendrikmuhs/ccache-action@v1
       if: runner.os == 'Linux'
       with:
-        key: ${{ matrix.os }}-${{ matrix.enable_ui }}
-    - uses: seanmiddleditch/gha-setup-ninja@master
+        key: ${{ matrix.os }}-${{ matrix.enable_ui }}-${{ matrix.build_type }}
+    - uses: turtlesec-no/get-ninja@main
     - uses: ilammy/msvc-dev-cmd@v1
       if: runner.os == 'Windows'
     - name: Generating Makefiles
@@ -49,5 +49,5 @@ jobs:
         name: aseprite
         path: |
           libcrypto-1_1-x64.dll
-          D:/Work/Aseprite/aseprite/build/bin/data
-          D:/Work/Aseprite/aseprite/build/bin/aseprite.exe
+          D:/Work/Aseprite/build/bin/data
+          D:/Work/Aseprite/build/bin/aseprite.exe
